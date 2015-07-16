@@ -27,6 +27,7 @@ public class PlayCore extends JavaPlugin
 	public void onEnable() 
 	{
 		instance = this;
+		cf.loadNewConfig();
 		getLogger().info("PlayCore has been enabled!");	
 	}
  

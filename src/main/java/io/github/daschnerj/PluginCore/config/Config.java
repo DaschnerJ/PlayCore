@@ -3,6 +3,8 @@ package io.github.daschnerj.PluginCore.config;
 import java.util.List;
 import java.util.Map;
 
+import org.bukkit.Location;
+
 import io.github.daschnerj.PluginCore.PlayCore;
 
 public class Config extends PlayCore 
@@ -15,9 +17,30 @@ public class Config extends PlayCore
 		p = i;
 	}
 	
-	public void createConfig()
+	public void loadNewConfig()
 	{
-		 
+	     p.getConfig().options().copyDefaults(true);
+	     p.saveConfig();
+	}
+	
+	public String getString(String configPath)
+	{
+		return getConfig().getString(configPath);	
+	}
+	
+	public Integer getInteger(String configPath)
+	{
+		return getConfig().getInt(configPath);	
+	}
+	
+	public Double getDouble(String configPath)
+	{
+		return getConfig().getDouble(configPath);	
+	}
+	
+	public Boolean getBoolean(String configPath)
+	{
+		return getConfig().getBoolean(configPath);	
 	}
 	
 	public List<String> getStringList(String configPath)
@@ -33,6 +56,14 @@ public class Config extends PlayCore
 	public List<Double> getDoubleList(String configPath)
 	{
 		return getConfig().getDoubleList(configPath);	
+	}
+	
+	public List<Location> getLocationList(String configPath)
+	{
+		List<String> locations = this.getStringList(configPath);
+		List<Location> convertedLocations = co.convertStringListToLocationList(locations);
+		
+		return convertedLocations;	
 	}
 	
 	public List<Boolean> getBooleanList(String configPath)
@@ -91,6 +122,17 @@ public class Config extends PlayCore
 		if(!getConfig().contains(path))
 		{
 			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
+		saveConfig();
+	}
+	
+	public void defaultLocationList(String path, List<Location> type)
+	{
+		List<String> convertedLocations = co.convertLocationListToStringList(type);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, convertedLocations);
 			getConfig().options().copyDefaults(true);
 		}
 		saveConfig();
@@ -193,6 +235,13 @@ public class Config extends PlayCore
 			getConfig().addDefault(path, type);
 			getConfig().options().copyDefaults(true);
 		}
+		saveConfig();
+	}
+	
+	public void setLocationList(String path, List<Location> type)
+	{
+		List<String> convertedLocations = co.convertLocationListToStringList(type);
+		getConfig().set(path, convertedLocations);
 		saveConfig();
 	}
 	

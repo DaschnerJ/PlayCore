@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -43,6 +44,29 @@ public class Conversions
 			itemList.add(createItemFromConfigLine(s));
 		}
 		return itemList;
+	}
+	
+	public List<String> convertLocationListToStringList(List<Location> l)
+	{
+		List<String> stringLocationList = new ArrayList<String>();
+		for(Location loc : l)
+		{
+			stringLocationList.add(loc.toString());
+		}
+		return stringLocationList;
+	}
+	
+	
+	
+	public List<Location> convertStringListToLocationList(List<String> s)
+	{
+		List<Location> locationList = new ArrayList<Location>();
+		for(String str : s)
+		{
+			locationList.add(u.locationFromString(str));
+		}
+
+		return locationList;
 	}
 	
 	/**

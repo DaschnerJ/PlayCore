@@ -34,5 +34,37 @@ public class Utility
 		
 		return location;
 	}
+	
+	public Location locationFromString(String loc) 
+	{
+        loc = loc.substring(loc.indexOf("{") + 1);
+        
+        loc = loc.substring(loc.indexOf("{") + 1);
+        
+        String worldName = loc.substring(loc.indexOf("=") + 1, loc.indexOf("}"));
+        
+        loc = loc.substring(loc.indexOf(",") + 1);
+        
+        String xCoord = loc.substring(loc.indexOf("=") + 1, loc.indexOf(","));
+        
+        loc = loc.substring(loc.indexOf(",") + 1);
+        
+        String yCoord = loc.substring(loc.indexOf("=") + 1, loc.indexOf(","));
+        
+        loc = loc.substring(loc.indexOf(",") + 1);
+        
+        String zCoord = loc.substring(loc.indexOf("=") + 1, loc.indexOf(","));
+        
+        loc = loc.substring(loc.indexOf(",") + 1);
+        
+        String pitch = loc.substring(loc.indexOf("=") + 1, loc.indexOf(","));
+        
+        loc = loc.substring(loc.indexOf(",") + 1);
+        
+        String yaw = loc.substring(loc.indexOf("=") + 1, loc.indexOf("}"));
+        
+        return new Location(Bukkit.getWorld(worldName), Double.parseDouble(xCoord), Double.parseDouble(yCoord), Double.parseDouble(zCoord), Float.parseFloat(yaw), Float.parseFloat(pitch));
+        
+    }
 
 }
