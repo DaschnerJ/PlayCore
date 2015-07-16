@@ -1,10 +1,13 @@
 package io.github.daschnerj.PluginCore.conversions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import io.github.daschnerj.PluginCore.PlayCore;
 import io.github.daschnerj.PluginCore.functions.Enchant;
 import io.github.daschnerj.PluginCore.functions.Name;
 import io.github.daschnerj.PluginCore.functions.Utility;
@@ -23,14 +26,23 @@ public class Conversions
 	 */
 	public ItemStack createItemFromConfigLine(String s)
 	{
-		
 		String splitColon[] = s.split(";");
 		HashMap<String, String> attributes = u.splitIntoHashMap(splitColon, ":");
 		
 		ItemStack item = applyTypes(attributes);
 		
-		return item;
-		
+		return item;	
+	}
+	
+	public List<ItemStack> createItemListFromConfigList(String path)
+	{
+		List<ItemStack> itemList = new ArrayList<ItemStack>();
+		List<String> itemStringList = PlayCore.cf.getStringList(path);
+		for(String s : itemStringList)
+		{
+			itemList.add(createItemFromConfigLine(s));
+		}
+		return itemList;
 	}
 	
 	/**

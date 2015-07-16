@@ -2,6 +2,10 @@ package io.github.daschnerj.PluginCore.functions;
 
 import java.util.HashMap;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+
 public class Utility 
 {
 	public HashMap<String, String> splitIntoHashMap(String[] s, String split)
@@ -16,6 +20,19 @@ public class Utility
 		}
 		
 		return h;
+	}
+	
+	public Location createLocation(Integer x, Integer y, Integer z, String w)
+	{
+		World world = Bukkit.getWorld(w);
+		
+		Double lX = Double.valueOf(x);
+		Double lY = Double.valueOf(y);
+		Double lZ = Double.valueOf(z);
+		
+		Location location = new Location(world, lY, lZ, lX);
+		
+		return location;
 	}
 
 }

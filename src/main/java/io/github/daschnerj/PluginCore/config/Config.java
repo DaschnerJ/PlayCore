@@ -86,73 +86,113 @@ public class Config extends PlayCore
 		reloadConfig();
 	}
 	
+	public void defaultList(String path, List<?> type)
+	{
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
+		saveConfig();
+	}
+	
 	public void defaultString(String path, String type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultInteger(String path, Integer type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultDouble(String path, Double type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultFloat(String path, Float type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultShort(String path, Short type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultLong(String path, Long type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultByte(String path, Byte type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultCharacter(String path, Character type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultBoolean(String path, Boolean type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
 	public void defaultMap(String path, Map<?,?> type)
 	{
-		getConfig().addDefault(path, type);
-		getConfig().options().copyDefaults(true);
+		if(!getConfig().contains(path))
+		{
+			getConfig().addDefault(path, type);
+			getConfig().options().copyDefaults(true);
+		}
 		saveConfig();
 	}
 	
