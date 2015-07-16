@@ -15,7 +15,7 @@ public class PlayCore extends JavaPlugin
 	private static PlayCore instance;
 	
 	public static Chests c = new Chests();
-	public static Config cf = new Config(instance);
+	public static Config cf;
 	public static Conversions co = new Conversions();
 	public static Enchant e = new Enchant();
 	public static Locations l = new Locations();
@@ -27,6 +27,7 @@ public class PlayCore extends JavaPlugin
 	public void onEnable() 
 	{
 		instance = this;
+		cf = new Config(instance);
 		cf.loadNewConfig();
 		getLogger().info("PlayCore has been enabled!");	
 	}
