@@ -1,4 +1,5 @@
 package io.github.daschnerj.PluginCore;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import io.github.daschnerj.PluginCore.config.Config;
@@ -12,6 +13,9 @@ import io.github.daschnerj.PluginCore.functions.Utility;
 
 public class PlayCore extends JavaPlugin 
 {
+	
+	public static FileConfiguration config;
+	
 	private static PlayCore instance;
 	
 	public static Chests c = new Chests();
@@ -25,10 +29,10 @@ public class PlayCore extends JavaPlugin
 	
 	@Override
 	public void onEnable() 
-	{
+	{	
 		instance = this;
 		cf = new Config(instance);
-		cf.loadNewConfig();
+		loadConfiguration();
 		getLogger().info("PlayCore has been enabled!");	
 	}
  
@@ -38,5 +42,11 @@ public class PlayCore extends JavaPlugin
 		
 		getLogger().info("PlayCore has been disabled!");
 		
+	}
+	
+	public void loadConfiguration()
+	{
+	     getConfig().options().copyDefaults(true);
+	     saveConfig();     
 	}
 }

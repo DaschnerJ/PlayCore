@@ -3,7 +3,9 @@ package io.github.daschnerj.PluginCore.config;
 import java.util.List;
 import java.util.Map;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.inventory.ItemStack;
 
 import io.github.daschnerj.PluginCore.PlayCore;
 import io.github.daschnerj.PluginCore.conversions.Conversions;
@@ -18,12 +20,6 @@ public class Config
 	public Config(PlayCore i)
 	{
 		p = i;
-	}
-	
-	public void loadNewConfig()
-	{
-	     p.getConfig().options().copyDefaults(true);
-	     p.saveConfig();
 	}
 	
 	public String getString(String configPath)
@@ -122,122 +118,86 @@ public class Config
 	
 	public void defaultList(String path, List<?> type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultLocationList(String path, List<Location> type)
 	{
 		List<String> convertedLocations = co.convertLocationListToStringList(type);
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, convertedLocations);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, convertedLocations);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultString(String path, String type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultInteger(String path, Integer type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultDouble(String path, Double type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultFloat(String path, Float type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultShort(String path, Short type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultLong(String path, Long type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultByte(String path, Byte type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultCharacter(String path, Character type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultBoolean(String path, Boolean type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
 	public void defaultMap(String path, Map<?,?> type)
 	{
-		if(!p.getConfig().contains(path))
-		{
-			p.getConfig().addDefault(path, type);
-			p.getConfig().options().copyDefaults(true);
-		}
+		p.getConfig().addDefault(path, type);
+		p.getConfig().options().copyDefaults(true);
 		p.saveConfig();
 	}
 	
@@ -245,6 +205,13 @@ public class Config
 	{
 		List<String> convertedLocations = co.convertLocationListToStringList(type);
 		p.getConfig().set(path, convertedLocations);
+		p.saveConfig();
+	}
+	
+	public void setItemStackList(String path, List<ItemStack> type)
+	{
+		List<String> convertedItems = co.convertItemStackListToStringList(type);
+		p.getConfig().set(path, convertedItems);
 		p.saveConfig();
 	}
 	

@@ -3,9 +3,11 @@ package io.github.daschnerj.PluginCore.conversions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.daschnerj.PluginCore.PlayCore;
@@ -67,6 +69,67 @@ public class Conversions
 		}
 
 		return locationList;
+	}
+	
+	public String convertItemStackToString(ItemStack item)
+	{
+		//Material:material;Amount:int;Enchant:ENCHANTTYPE|int,ENCHANTTYPE2|int,ENCHANTTYPE3|int;Name:String;Lore:String|n|String2|n|String3
+		String itemConverted = "";
+		itemConverted = itemConverted + "Material:" + item.getType().toString();
+		itemConverted = itemConverted + ";Amount:" + item.getAmount();
+		String enchants = ";Enchant:";
+		
+		if(item.getItemMeta().hasEnchants())
+		{
+			Map<Enchantment, Integer> e = item.getEnchantments();
+			for(Enchantment enchant : e.keySet())
+			{
+				if(enchants.equals(";Enchant:"))
+				{
+				
+				}
+				else
+				{
+					enchants = enchants + ",";
+				}
+				enchants = enchants + enchant.getName() + "|" + e.get(enchant);
+			}
+			itemConverted = itemConverted + enchants;
+		}
+		if(item.getItemMeta().hasDisplayName())
+		{
+			itemConverted = itemConverted + ";Name:" + item.getItemMeta().getDisplayName();
+		}
+		if(item.getItemMeta().hasLore())
+		{
+			String loreSet = ";Lore:";
+			List<String> lore = item.getItemMeta().getLore();
+			for(String s : lore)
+			{
+				if(enchants.equals(";Lore:"))
+				{
+				
+				}
+				else
+				{
+					loreSet = loreSet + "|n|";
+				}
+				loreSet = loreSet + s;
+			}
+		}
+		
+		return itemConverted;
+		
+	}
+	
+	public List<String> convertItemStackListToStringList(List<ItemStack> items)
+	{
+		List<String> itemList = new ArrayList<String>();
+		for(ItemStack i : items)
+		{
+			itemList.add(convertItemStackToString(i));
+		}
+		return itemList;
 	}
 	
 	/**
