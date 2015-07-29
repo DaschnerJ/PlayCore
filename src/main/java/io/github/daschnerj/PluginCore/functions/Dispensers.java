@@ -1,7 +1,5 @@
 package io.github.daschnerj.PluginCore.functions;
 
-import java.util.HashMap;
-
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Dispenser;
@@ -60,30 +58,19 @@ public class Dispensers {
 	 * 
 	 * @param Dispenser - Dispenser to add to.
 	 * @param Itemstack - ItemStack to add to the dispenser.
-	 * @return True if item was added without problems, false otherwise.
 	 */
 	
-	public boolean addItem(Dispenser Dispenser, ItemStack Itemstack)
+	public void addItem(Dispenser Dispenser, ItemStack Itemstack)
 	{
-		
-		boolean success = false;
 		
 		if(Itemstack != null)
 		{
 			
 			Inventory dispenserInv = Dispenser.getInventory();
 			
-			HashMap<Integer, ItemStack> hashmap = dispenserInv.addItem(Itemstack);
-			
-			if(hashmap.isEmpty()) {
-				
-				success = true;
-				
-			}
+			dispenserInv.addItem(Itemstack);
 			
 		}
-		
-		return success;
 		
 	}
 	
@@ -92,30 +79,19 @@ public class Dispensers {
 	 * 
 	 * @param Dispenser - Dispenser to add to.
 	 * @param Itemstack - ItemStack to add to the dispenser.
-	 * @return True if item was added without problems, false otherwise.
 	 */
 	
-	public boolean removeItem(Dispenser Dispenser, ItemStack Itemstack)
+	public void removeItem(Dispenser Dispenser, ItemStack Itemstack)
 	{
-		
-		boolean success = false;
-		
+				
 		if(Itemstack != null)
 		{
 			
 			Inventory dispenserInv = Dispenser.getInventory();
 			
-			HashMap<Integer, ItemStack> hashmap = dispenserInv.removeItem(Itemstack);
-			
-			if(hashmap.isEmpty()) {
-				
-				success = true;
-				
-			}
+			dispenserInv.removeItem(Itemstack);
 			
 		}
-		
-		return success;
 		
 	}
 	
@@ -123,13 +99,13 @@ public class Dispensers {
 	 * Gets the direction of the Dispenser given.
 	 * 
 	 * @param Dispenser - The Dispenser to get the direction of.
-	 * @return The direction, or if not found correctly -1.
+	 * @return The direction, or if not found correctly then defaults to 0.
 	 */
 	
 	@SuppressWarnings("deprecation")
 	public byte getDirection(Dispenser Dispenser) {
 		
-		byte direction = -1;
+		byte direction = 0;
 		
 		if(Dispenser.getBlock().getData() >= 0 && Dispenser.getBlock().getData() <= 5) {
 			
@@ -155,11 +131,11 @@ public class Dispensers {
 	 */
 	
 	@SuppressWarnings("deprecation")
-	public void setDirection(int Direction, Dispenser Dispenser) {
+	public void setDirection(byte Direction, Dispenser Dispenser) {
 		
 		if(Direction >= 0 && Direction <= 5) {
 			
-			Dispenser.getBlock().setData((byte) Direction);
+			Dispenser.getBlock().setData(Direction);
 			
 		}
 				
