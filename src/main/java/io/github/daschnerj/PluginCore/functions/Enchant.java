@@ -8,6 +8,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Enchant 
 {
+	public Enchant()
+	{
+		
+	}
 	
 	private static Utility u = new Utility();
 	

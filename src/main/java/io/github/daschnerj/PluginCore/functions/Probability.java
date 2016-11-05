@@ -5,6 +5,11 @@ import java.util.Random;
 public class Probability 
 {
 	
+	public Probability()
+	{
+		
+	}
+	
 	Random r = new Random();
 	
 	public int pickBetweenBounds(int min, int max)

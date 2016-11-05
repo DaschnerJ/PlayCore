@@ -15,16 +15,34 @@ public class Chests
 	
 	Probability p = new Probability();
 	
+	public Chests()
+	{
+		
+	}
+	
+	/**
+	 * Spawns a chest at the selected location.
+	 * @param loc Location to spawn the chest.
+	 */
 	public void spawnChest(Location loc)
 	{
 		loc.getBlock().setType(Material.CHEST);
 	}
 	
+	/**
+	 * Spawns a trapped chest at the selected location.
+	 * @param loc Location to spawn the trapped chest.
+	 */
 	public void spawnTrappedChest(Location loc)
 	{
 		loc.getBlock().setType(Material.TRAPPED_CHEST);
 	}
 	
+	/**
+	 * Gets the chest at the selected location.
+	 * @param loc The location to get a chest.
+	 * @return Returns a the chest or trapped chest at the location or returns null if there is no chest.
+	 */
 	public Chest getChest(Location loc)
 	{
 		Chest chest = null;
@@ -39,6 +57,11 @@ public class Chests
 		return chest;
 	}
 	
+	/**
+	 * Adds a list of Item Stacks to the selected chest.
+	 * @param chest that the items are to be added to.
+	 * @param items that are to be added to the chest.
+	 */
 	public void addItems(Chest chest, List<ItemStack> items)
 	{
 		if(items != null)
@@ -51,7 +74,11 @@ public class Chests
 			}
 		}
 	}
-	
+	/**
+	 * Adds a single item stack to a chest.
+	 * @param chest that the item is added to.
+	 * @param item that is added to the chest.
+	 */
 	public void addItem(Chest chest, ItemStack item)
 	{
 		if(item != null)
@@ -60,7 +87,11 @@ public class Chests
 			inv.addItem(item);
 		}
 	}
-	
+	/**
+	 * Randomly selects a random amount of items to fill a chest with from an Item Stack List.
+	 * @param possibleItems is a list of item stacks to possibly fill a chest with.
+	 * @return Returns an item stack list to fill a chest with.
+	 */
 	public List<ItemStack> pickItemsForChestFromList(List<ItemStack> possibleItems)
 	{
 		List<ItemStack> itemsToAdd = new ArrayList<ItemStack>();

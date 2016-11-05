@@ -9,6 +9,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class Name 
 {
 	
+	public Name()
+	{
+		
+	}
+	
 	public ItemStack setName(ItemStack i, String name)
 	{
 		ItemMeta m = i.getItemMeta();

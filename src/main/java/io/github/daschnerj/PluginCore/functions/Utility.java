@@ -8,6 +8,12 @@ import org.bukkit.World;
 
 public class Utility 
 {
+	
+	public Utility()
+	{
+		
+	}
+	
 	public HashMap<String, String> splitIntoHashMap(String[] s, String split)
 	{
 		

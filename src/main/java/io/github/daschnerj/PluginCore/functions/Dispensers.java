@@ -8,6 +8,11 @@ import org.bukkit.inventory.ItemStack;
 
 public class Dispensers {
 	
+	public Dispensers()
+	{
+		
+	}
+	
 	/**
 	 * Creates a Dispenser at the given location.
 	 * 

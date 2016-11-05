@@ -11,7 +11,8 @@ import io.github.daschnerj.PluginCore.functions.Name;
 import io.github.daschnerj.PluginCore.functions.Probability;
 import io.github.daschnerj.PluginCore.functions.Utility;
 
-public class PlayCore extends JavaPlugin 
+
+public class PlayCore extends JavaPlugin
 {
 	
 	public static FileConfiguration config;
