@@ -1,0 +1,9 @@
+io\github\daschnerj\PluginCore\functions\Enchant.class
+io\github\daschnerj\PluginCore\functions\Chests.class
+io\github\daschnerj\PluginCore\functions\Locations.class
+io\github\daschnerj\PluginCore\functions\Utility.class
+io\github\daschnerj\PluginCore\functions\Name.class
+io\github\daschnerj\PluginCore\functions\Probability.class
+io\github\daschnerj\PluginCore\conversions\Conversions.class
+io\github\daschnerj\PluginCore\config\Config.class
+io\github\daschnerj\PluginCore\PlayCore.class
